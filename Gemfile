@@ -14,3 +14,7 @@ gem 'sqlite3'
 
 # Padrino Stable Gem
 gem 'padrino', '0.10.7'
+
+group :development do
+  gem 'shotgun'
+end
