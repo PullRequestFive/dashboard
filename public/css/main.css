@@ -95,7 +95,7 @@ textarea {
 
 html {
   
-  background: url(http://i.imgur.com/qAtAL.gif) no-repeat center center fixed; 
+  background: url(/picture) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
