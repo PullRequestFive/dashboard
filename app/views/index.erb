@@ -26,7 +26,12 @@
         <article>
             <section class="weather">
                 <h1>Weather</h1>
+                <a href="#" id="target" title="Target">
+                    <span class="climacon indicator">{</span>
+                    <span id="pulse"></span>
+                </a>
                 <h2 class="temperature"><span class="climacon">1</span>108<span class="climacon temp">T</span></h2>
+
             </section>
             
             <section class="time">
@@ -35,6 +40,16 @@
             </section>
                 
             <section class="tweets">
+                <h1>@icco</h1>
+                <script src="js/chirp.js"></script>
+                <script>Chirp({
+                  user: 'icco', //Twitter username
+                  max: 3, //Maximum number of tweets to show 
+                  count: 100, //Total tweets to retrieve
+                  retweets: false, //Show/Don't show retweets
+                  replies: false,  //Show/Don't show replies
+                  cacheExpire: 1000 * 60 * 2 //Number of milliseconds to cache tweets
+                })</script>
             </section>
         </article>
 
