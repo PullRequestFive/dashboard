@@ -62,6 +62,13 @@ Dashboard.helpers do
       :Unknown => "`",
     }
 
-    return map[weather]
+    char = map[weather]
+
+    if char.nil?
+      char = "1"
+      logger.warning "#{weather.inspect} is not a valid weather type."
+    end
+
+    return char
   end
 end
