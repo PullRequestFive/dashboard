@@ -32,6 +32,10 @@ Dashboard.controllers  do
     end
 
     content_type "application/json"
-    return { :weather => weather, :temp => temp.to_i }.to_json
+    return {
+      :weather => weather,
+      :temp => temp.to_i,
+      :char => weatherToChar(weather),
+    }.to_json
   end
 end

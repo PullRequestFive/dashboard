@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        
+
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
@@ -30,25 +30,25 @@
                     <span class="climacon indicator">{</span>
                     <span id="pulse"></span>
                 </a>-->
-                
+
                 <h2 class="temperature">
-                  <span class="climacon">1</span>
+                  <span class="climacon" id="wicon">1</span>
                   <span class="f">--</span>
                   <span class="climacon temp">T</span>
                 </h2>
             </section>
-            
+
             <section class="time">
                 <h1>Time</h1>
                 <h2 class="clock">10:34<span>pm</span></h2>
             </section>
-                
+
             <section class="tweets">
                 <h1>@icco</h1>
                 <script src="js/chirp.js"></script>
                 <script>Chirp({
                   user: 'icco', //Twitter username
-                  max: 3, //Maximum number of tweets to show 
+                  max: 3, //Maximum number of tweets to show
                   count: 100, //Total tweets to retrieve
                   retweets: false, //Show/Don't show retweets
                   replies: false,  //Show/Don't show replies
