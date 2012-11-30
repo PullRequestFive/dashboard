@@ -111,17 +111,12 @@ article {
   
 }
 
-h1, h2 {
+h1, h2, span {
   margin:0;
 }
 
-h2  {
+h2 {
   font-size:8em;
-}
-
-h2 span {
-  text-transform: uppercase;
-  font-size:1rem;
 }
 
 h1 {
