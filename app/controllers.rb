@@ -10,8 +10,7 @@ Dashboard.controllers  do
     url = 'http://feeds.nationalgeographic.com/ng/photography/photo-of-the-day/'
     open(url) do |rss|
       feed = RSS::Parser.parse(rss)
-      big_img = feed.items.first.enclosure.url.sub("360x270", "1600x1200")
-
+      big_img = feed.items.first.enclosure.url.sub("360x270", "1600x1200").sub("http:", "")
       redirect big_img
     end
   end
