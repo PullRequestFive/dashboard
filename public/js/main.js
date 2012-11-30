@@ -4,7 +4,8 @@ function weather() {
     var url = "/weather?location=" + loc;
     jQuery.get(url, function(data) {
       $('.f').html(data.temp);
-      $('#wicon').html(data.char);
+      weather_string = "<abbr title=\"" + data.weather + "\">" + data.char + "</abbr>";
+      $('#wicon').html(weather_string);
     });
   });
 }

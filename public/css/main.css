@@ -93,9 +93,14 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+abbr[title] {
+  border: none;
+  cursor: pointer;
+}
+
 html {
-  
-  background: url(/picture) no-repeat center center fixed; 
+
+  background: url(/picture) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -108,7 +113,7 @@ body {
 }
 
 article {
-  
+
 }
 
 h1, h2, span {
@@ -253,7 +258,7 @@ a#target #pulse {
     -webkit-transform: scale(2.5);
     transform: scale(2.5);
     opacity: 0;
-  }	
+  }
 }
 
 /* Gecko/Firefox */
@@ -276,7 +281,7 @@ a#target #pulse {
     -moz-transform: scale(2.5);
     transform: scale(2.5);
     opacity: 0;
-  }	
+  }
 }
 
 /* Presto/Opera */
@@ -299,7 +304,7 @@ a#target #pulse {
     -o-transform: scale(2.5);
     transform: scale(2.5);
     opacity: 0;
-  }	
+  }
 }
 
 /* Standard */
@@ -319,7 +324,7 @@ a#target #pulse {
   100% {
     transform: scale(2.5);
     opacity: 0;
-  }	
+  }
 }
 
 
