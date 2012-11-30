@@ -1,22 +1,18 @@
 Dashboard.controllers  do
-  # get :index, :map => "/foo/bar" do
-  #   session[:foo] = "bar"
-  #   render 'index'
-  # end
+  get :index do
+    render :index
+  end
 
-  # get :sample, :map => "/sample/url", :provides => [:any, :js] do
-  #   case content_type
-  #     when :js then ...
-  #     else ...
-  # end
+  get :picture do
+    require 'rss'
+    require 'open-uri'
 
-  # get :foo, :with => :id do
-  #   "Maps to url '/foo/#{params[:id]}'"
-  # end
+    url = 'http://feeds.nationalgeographic.com/ng/photography/photo-of-the-day/'
+    open(url) do |rss|
+      feed = RSS::Parser.parse(rss)
+      big_img = feed.items.first.enclosure.url.sub("360x270", "1600x1200")
 
-  # get "/example" do
-  #   "Hello world!"
-  # end
-
-  
+      redirect big_img
+    end
+  end
 end
