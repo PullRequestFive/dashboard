@@ -1,8 +1,8 @@
 var Chirp = function( opts ){
 	var api = {
-			user: 'http://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&count={{count}}&include_rts={{retweets}}&exclude_replies={{!replies}}&screen_name={{user}}',
-			list: 'http://api.twitter.com/1/{{user}}/lists/{{list}}/statuses.json?include_entities=true',
-			search: 'http://search.twitter.com/search.json?include_entities=true&q={{search}}'
+			user: '//api.twitter.com/1/statuses/user_timeline.json?include_entities=true&count={{count}}&include_rts={{retweets}}&exclude_replies={{!replies}}&screen_name={{user}}',
+			list: '//api.twitter.com/1/{{user}}/lists/{{list}}/statuses.json?include_entities=true',
+			search: '//search.twitter.com/search.json?include_entities=true&q={{search}}'
 		},
 		options = {
 			retweets: true,
