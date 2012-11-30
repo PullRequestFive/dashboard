@@ -93,7 +93,24 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+html {
+  
+  background: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/610/cache/male-weedy-seadragon_61073_990x742.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
+body {
+  font-family: 'Open Sans', sans-serif;
+  color:#fff;
+  text-shadow:0 1px 6px rgba(0,0,0,.6);
+}
+
+.time span {
+  font-size:8em;
+}
 
 
 
