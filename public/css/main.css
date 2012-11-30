@@ -105,7 +105,14 @@ html {
 body {
   font-family: 'Open Sans', sans-serif;
   color:#fff;
-  text-shadow:0 1px 6px rgba(0,0,0,.6);
+}
+
+article {
+  
+}
+
+h1, h2 {
+  margin:0;
 }
 
 h2  {
@@ -117,18 +124,49 @@ h2 span {
   font-size:1rem;
 }
 
-.time {
-  position:absolute;
-  right:2rem;
-  top:2rem;
+h1 {
+  text-transform: uppercase;
+  font-size:.8em;
+  color:#BABABA;
 }
 
-.weather {
-  position:absolute;
-  left:2rem;
-  bottom:2rem;
+article {
+  background: rgba(30,30,30,.8);
+  padding:20px;
+  display:inline-block;
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
 }
 
+section {
+  border-bottom: 1px rgba(255,255,255,.1) solid;
+  margin-bottom:40px;
+}
+
+
+@font-face {
+    font-family:'ClimaconsRegular';
+    src: url('../fonts/climacons-webfont.eot');
+    src: url('../fonts/climacons-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/climacons-webfont.woff') format('woff'),
+         url('../fonts/climacons-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.climacon {
+  font-family:'ClimaconsRegular';
+  font-size: 6rem;
+  vertical-align: middle;
+}
+
+.temp {
+  font-size:3rem;
+  position:relative;
+  top:-3rem;
+}
 
 
 
