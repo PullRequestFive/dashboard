@@ -95,7 +95,7 @@ textarea {
 
 html {
   
-  background: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/610/cache/male-weedy-seadragon_61073_990x742.jpg) no-repeat center center fixed; 
+  background: url(http://i.imgur.com/qAtAL.gif) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -108,8 +108,25 @@ body {
   text-shadow:0 1px 6px rgba(0,0,0,.6);
 }
 
-.time span {
+h2  {
   font-size:8em;
+}
+
+h2 span {
+  text-transform: uppercase;
+  font-size:1rem;
+}
+
+.time {
+  position:absolute;
+  right:2rem;
+  top:2rem;
+}
+
+.weather {
+  position:absolute;
+  left:2rem;
+  bottom:2rem;
 }
 
 
