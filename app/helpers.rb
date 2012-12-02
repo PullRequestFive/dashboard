@@ -66,7 +66,7 @@ Dashboard.helpers do
 
     if char.nil?
       char = "1"
-      logger.warning "#{weather.inspect} is not a valid weather type."
+      logger.warn "#{weather.inspect} is not a valid weather type."
     end
 
     return char
