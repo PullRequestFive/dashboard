@@ -4,7 +4,7 @@ Dashboard.helpers do
 
   # TODO(icco): Finish mapping characters to weather
   def weatherToChar weather
-    weather = weather.gsub(/(Light|Heavy)/, "").to_sym
+    weather = weather.gsub(/(Light|Heavy)/, "").strip.to_sym
 
     map = {
       :Drizzle => "6",
