@@ -1,78 +1,82 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Dashboard</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+<html>
+  <head>
+    <title>Dashboard</title>
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
 
-        <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" href="/css/main.css">
-        <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="/css/normalize.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
 
-        <!-- Refresh every ten minutes to update weather. -->
-        <meta http-equiv="refresh" content="600">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+    <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
 
-        <!-- Add your site or application content here -->
-        <article>
-            <section class="weather">
-                <h1>Weather</h1>
-                <!--<a href="#" id="target" title="Target">
-                    <span class="climacon indicator">{</span>
-                    <span id="pulse"></span>
-                </a>-->
+    <!-- Refresh every ten minutes to update weather. -->
+    <meta http-equiv="refresh" content="600">
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
 
-                <h2 class="temperature">
-                  <span class="climacon" id="wicon">1</span>
-                  <span class="f">--</span>
-                  <span class="climacon temp">T</span>
-                </h2>
-            </section>
+    <article>
+      <section class="weather">
+        <h1>Weather</h1>
+        <!--
+        <a href="#" id="target" title="Target">
+          <span class="climacon indicator">{</span>
+          <span id="pulse"></span>
+        </a>
+        -->
 
-            <section class="time">
-                <h1>Time</h1>
-                <h2 class="clock">10:34<span>pm</span></h2>
-            </section>
+        <h2 class="temperature">
+          <span class="climacon" id="wicon">1</span>
+          <span class="f">--</span>
+          <span class="climacon temp">T</span>
+        </h2>
+      </section>
 
-            <section class="tweets">
-                <script src="/js/chirp.js"></script>
-            <% @twitter_users.each do |user| %>
-            <h1>@<%= user %></h1>
-                <script>Chirp({
-                  user: '<%= user %>', //Twitter username
-                  max: 1, //Maximum number of tweets to show
-                  count: 1, //Total tweets to retrieve
-                  retweets: false, //Show/Don't show retweets
-                  replies: false,  //Show/Don't show replies
-                  cacheExpire: 1000 * 60 * 2 //Number of milliseconds to cache tweets
-                })</script>
-            <% end %>
-            </section>
-        </article>
+      <section class="time">
+        <h1>Time</h1>
+        <h2 class="clock">20:34</h2>
+      </section>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
-        <script src="/js/plugins.js"></script>
-        <script src="/js/main.js"></script>
+      <section class="tweets">
+        <script src="/js/chirp.js"></script>
+        <% @twitter_users.each do |user| %>
+          <h1>@<%= user %></h1>
+          <script>
+            Chirp({
+              user: "<%= user %>", // Twitter username
+              max: 1, // Maximum number of tweets to show
+              count: 1, // Total tweets to retrieve
+              retweets: false, // Show/Don't show retweets
+              replies: false,  // Show/Don't show replies
+              cacheExpire: 1000 * 60 * 2 // Number of milliseconds to cache tweets
+            });
+            </script>
+        <% end %>
+      </section>
+    </article>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
-    </body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36864642-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
 </html>
