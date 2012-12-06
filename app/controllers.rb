@@ -1,5 +1,10 @@
 Dashboard.controllers  do
   get :index do
+    @twitter_users = ['icco', 'alexbaldwin', 'github']
+    if params['twitter']
+      @twitter_users = params['twitter'].split(',')[0..2]
+    end
+
     render :index
   end
 

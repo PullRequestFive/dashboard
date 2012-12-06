@@ -93,6 +93,10 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.tweets {
+  max-width: 400px;
+}
+
 abbr[title] {
   border: none;
   cursor: pointer;
