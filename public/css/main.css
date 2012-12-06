@@ -99,7 +99,7 @@ textarea {
 
 abbr[title] {
   border: none;
-  cursor: pointer;
+  cursor: default;
 }
 
 html {
