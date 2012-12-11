@@ -93,6 +93,12 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.header {
+  opacity: 0.7;
+  padding: 10px;
+  font-size: 0.7em;
+}
+
 .tweets {
   max-width: 400px;
 }

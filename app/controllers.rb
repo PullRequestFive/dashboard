@@ -42,4 +42,8 @@ Dashboard.controllers  do
       :char => weatherToChar(weather),
     }.to_json
   end
+
+  get :about do
+    render :about
+  end
 end
