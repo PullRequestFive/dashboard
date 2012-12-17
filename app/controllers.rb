@@ -59,6 +59,8 @@ Dashboard.controllers  do
 
   get :edit do
     @user = User.find_by_username session[:username]
+    @user = User.find_by_email session[:email] if @user.nil?
+
     if @user.nil?
       redirect '/login'
     else
@@ -68,9 +70,11 @@ Dashboard.controllers  do
 
   post :edit do
     @user = User.find_by_username session[:username]
+    @user = User.find_by_email session[:email] if @user.nil?
     if @user.nil?
       redirect '/login'
     else
+      @user.username = params[:username].strip
       @user.email = params[:email].strip
       @user.set_config(:twitter, params[:twitter].strip.split(','))
       @user.save
@@ -88,10 +92,19 @@ Dashboard.controllers  do
       @user = User.find_by_username params[:username]
       if @user
         session['username'] = @user.username
-      else
+      elsif username
         @user = User.new
         @user.username = username
         @user.save
+      elsif env['omniauth.auth'].extra.email
+        @user = User.new
+        @user.email = env['omniauth.auth'].extra.email
+        @user.save
+
+        session['email'] = @user.email
+        redirect "/edit"
+      else
+        500
       end
 
       redirect "/user/#{@user.username}"

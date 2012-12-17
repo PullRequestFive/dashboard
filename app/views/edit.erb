@@ -1,4 +1,8 @@
 <form method="post">
+  <% if @user.username.nil? %>
+    <input name="username" placeholder="Username" />
+  <% end %>
+
   <input value="<%= @user.email %>" name="email" type="text" placeholder="Email Address" />
   <input value="<%= @user.get_config(:twitter).join(',') %>" name="twitter" type="text" placeholder="icco,alexbaldwin,github" />
   <input type="submit" />
