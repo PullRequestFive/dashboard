@@ -58,14 +58,16 @@ Dashboard.controllers  do
   end
 
   get :edit do
-    @user = User.find_by_username session[:username]
-    @user = User.find_by_email session[:email] if @user.nil?
-
-    if @user.nil?
-      redirect '/login'
+    if sesson[:username]
+      @user = User.find_by_username session[:username]
+    elsif session[:email]
+      @user = User.find_by_email session[:email]
     else
-      render :edit
+      redirect :login
     end
+
+    p session
+    render :edit
   end
 
   post :edit do
@@ -89,9 +91,6 @@ Dashboard.controllers  do
     send(method, "/auth/:provider/callback") do
       p env['omniauth.auth'] # => OmniAuth::AuthHash
       username = env['omniauth.auth'].info.username
-
-      p env['omniauth.auth'].info
-      p env['omniauth.auth'].info.email
       
       @user = User.find_by_username params[:username]
 
