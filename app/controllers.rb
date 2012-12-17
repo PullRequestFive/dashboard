@@ -47,16 +47,29 @@ Dashboard.controllers  do
     render :about
   end
 
+  get :user, :with => :username do
+
+  end
+
   # Auth shit
   %w(get post).each do |method|
     send(method, "/auth/:provider/callback") do
-      env['omniauth.auth'] # => OmniAuth::AuthHash
+      p env['omniauth.auth'] # => OmniAuth::AuthHash
+      username = env['omniauth.auth'].info.username
+
+      session['username'] = username
+      redirect "/user/#{username}"
     end
   end
 
   get '/auth/failure' do
     flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
     redirect '/'
+  end
+
+  get "/login" do
+    provider = Padrino.env == :development ? "developer" : "google_oauth2"
+    redirect "/auth/#{provider}"
   end
 
   get "/logout" do

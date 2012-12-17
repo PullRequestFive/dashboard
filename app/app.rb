@@ -8,7 +8,7 @@ class Dashboard < Padrino::Application
   enable :sessions
   OmniAuth.config.logger = logger
   use OmniAuth::Builder do
-    provider :developer if PADRINO_ENV == "development"
+    provider :developer, :fields => [:username] if PADRINO_ENV == "development"
     provider :google_oauth2, ENV['GOOGLE_KEY'], ENV['GOOGLE_SECRET'], {access_type: 'online', approval_prompt: ''}
   end
 end
