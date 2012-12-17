@@ -90,9 +90,12 @@ Dashboard.controllers  do
       p env['omniauth.auth'] # => OmniAuth::AuthHash
       username = env['omniauth.auth'].info.username
 
+      p env['omniauth.auth'].info
+      p env['omniauth.auth'].info.email
+      
       @user = User.find_by_username params[:username]
 
-      if @user
+      if @user.username
         session['username'] = @user.username
       elsif username
         @user = User.new
