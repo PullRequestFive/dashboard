@@ -50,7 +50,7 @@
 
       <section class="tweets">
         <script src="/js/chirp.js"></script>
-        <% @user.config[:twitter].each do |user| %>
+        <% @user.get_config(:twitter).each do |user| %>
           <h1>@<%= user %></h1>
           <script>
             Chirp({

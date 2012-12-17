@@ -50,11 +50,35 @@ Dashboard.controllers  do
   get :user, :with => :username do
     @user = User.find_by_username params[:username]
     if @user
+      p @user.get_config(:twitter)
       render :user
     else
       404
     end
   end
+
+  get :edit do
+    @user = User.find_by_username session[:username]
+    if @user.nil?
+      redirect '/login'
+    else
+      render :edit
+    end
+  end
+
+  post :edit do
+    @user = User.find_by_username session[:username]
+    if @user.nil?
+      redirect '/login'
+    else
+      @user.email = params[:email].strip
+      @user.set_config(:twitter, params[:twitter].strip.split(','))
+      @user.save
+
+      redirect "/user/#{@user.username}"
+    end
+  end
+
 
   # Auth shit
   %w(get post).each do |method|
