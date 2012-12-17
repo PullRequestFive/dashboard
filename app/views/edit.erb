@@ -1,6 +1,6 @@
 <form method="post">
   <% if @user.username.nil? %>
-    <input name="username" placeholder="Username" />
+    <input value="<%= @user.username %>" name="username" placeholder="Username" />
   <% end %>
 
   <input value="<%= @user.email %>" name="email" type="text" placeholder="Email Address" />

@@ -66,7 +66,6 @@ Dashboard.controllers  do
       redirect :login
     end
 
-    p session
     render :edit
   end
 
