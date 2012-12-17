@@ -89,16 +89,18 @@ Dashboard.controllers  do
     send(method, "/auth/:provider/callback") do
       p env['omniauth.auth'] # => OmniAuth::AuthHash
       username = env['omniauth.auth'].info.username
+
       @user = User.find_by_username params[:username]
+
       if @user
         session['username'] = @user.username
       elsif username
         @user = User.new
         @user.username = username
         @user.save
-      elsif env['omniauth.auth'].extra.email
+      elsif env['omniauth.auth'].info.email
         @user = User.new
-        @user.email = env['omniauth.auth'].extra.email
+        @user.email = env['omniauth.auth'].info.email
         @user.save
 
         session['email'] = @user.email
