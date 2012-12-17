@@ -91,7 +91,7 @@ Dashboard.controllers  do
     send(method, "/auth/:provider/callback") do
       p env['omniauth.auth'] # => OmniAuth::AuthHash
       username = env['omniauth.auth'].info.username
-      
+
       @user = User.find_by_username params[:username]
 
       if @user.username
