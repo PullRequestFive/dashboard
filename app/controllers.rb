@@ -48,7 +48,12 @@ Dashboard.controllers  do
   end
 
   get :user, :with => :username do
-
+    @user = User.find_by_username params[:username]
+    if @user
+      render :user
+    else
+      404
+    end
   end
 
   # Auth shit
@@ -56,9 +61,16 @@ Dashboard.controllers  do
     send(method, "/auth/:provider/callback") do
       p env['omniauth.auth'] # => OmniAuth::AuthHash
       username = env['omniauth.auth'].info.username
+      @user = User.find_by_username params[:username]
+      if @user
+        session['username'] = @user.username
+      else
+        @user = User.new
+        @user.username = username
+        @user.save
+      end
 
-      session['username'] = username
-      redirect "/user/#{username}"
+      redirect "/user/#{@user.username}"
     end
   end
 
