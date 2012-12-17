@@ -58,7 +58,7 @@ Dashboard.controllers  do
   end
 
   get :edit do
-    if sesson[:username]
+    if session[:username]
       @user = User.find_by_username session[:username]
     elsif session[:email]
       @user = User.find_by_email session[:email]
