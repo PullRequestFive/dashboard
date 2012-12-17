@@ -3,7 +3,7 @@
 connections = {
   :development => "postgres://localhost/dashboard",
   :test => "postgres://postgres@localhost/dashboard_test",
-  :production => ENV['DATABASE_URL']
+  :production => ENV['HEROKU_POSTGRESQL_CRIMSON_URL']
 }
 
 # Setup our logger
