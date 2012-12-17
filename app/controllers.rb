@@ -46,4 +46,70 @@ Dashboard.controllers  do
   get :about do
     render :about
   end
+
+  get :user, :with => :username do
+    @user = User.find_by_username params[:username]
+    if @user
+      p @user.get_config(:twitter)
+      render :user
+    else
+      404
+    end
+  end
+
+  get :edit do
+    @user = User.find_by_username session[:username]
+    if @user.nil?
+      redirect '/login'
+    else
+      render :edit
+    end
+  end
+
+  post :edit do
+    @user = User.find_by_username session[:username]
+    if @user.nil?
+      redirect '/login'
+    else
+      @user.email = params[:email].strip
+      @user.set_config(:twitter, params[:twitter].strip.split(','))
+      @user.save
+
+      redirect "/user/#{@user.username}"
+    end
+  end
+
+
+  # Auth shit
+  %w(get post).each do |method|
+    send(method, "/auth/:provider/callback") do
+      p env['omniauth.auth'] # => OmniAuth::AuthHash
+      username = env['omniauth.auth'].info.username
+      @user = User.find_by_username params[:username]
+      if @user
+        session['username'] = @user.username
+      else
+        @user = User.new
+        @user.username = username
+        @user.save
+      end
+
+      redirect "/user/#{@user.username}"
+    end
+  end
+
+  get '/auth/failure' do
+    flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
+    redirect '/'
+  end
+
+  get "/login" do
+    provider = Padrino.env == :development ? "developer" : "google_oauth2"
+    redirect "/auth/#{provider}"
+  end
+
+  get "/logout" do
+    session = {}
+    redirect '/'
+  end
 end
