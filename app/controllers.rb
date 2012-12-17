@@ -46,4 +46,21 @@ Dashboard.controllers  do
   get :about do
     render :about
   end
+
+  # Auth shit
+  %w(get post).each do |method|
+    send(method, "/auth/:provider/callback") do
+      env['omniauth.auth'] # => OmniAuth::AuthHash
+    end
+  end
+
+  get '/auth/failure' do
+    flash[:notice] = params[:message] # if using sinatra-flash or rack-flash
+    redirect '/'
+  end
+
+  get "/logout" do
+    session = {}
+    redirect '/'
+  end
 end
