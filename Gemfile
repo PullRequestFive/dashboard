@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 gem 'activerecord', :require => "active_record"
 gem 'erubis', "~> 2.7.0"
