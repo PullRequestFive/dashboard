@@ -43,7 +43,7 @@ GEM
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
-    omniauth-google-oauth2 (0.1.13)
+    omniauth-google-oauth2 (0.1.15)
       omniauth (~> 1.0)
       omniauth-oauth2
     omniauth-oauth2 (1.1.1)
